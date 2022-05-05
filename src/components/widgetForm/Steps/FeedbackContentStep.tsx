@@ -1,6 +1,7 @@
 import { FeedbackType, feedbackTypes } from '..'
-import { ArrowLeft } from 'phosphor-react'
+import { ArrowLeft, Camera } from 'phosphor-react'
 import { CloseButton } from '../../closeButton/closeButton'
+import { ScreenshotButton } from '../ScreenshotButton'
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType
@@ -35,7 +36,23 @@ export function FeedbackContentStep({
         <CloseButton />
       </header>
 
-      <div className="flex py-8 gap-2 w-full"></div>
+      <form className="my-4 w-full">
+        <textarea
+          className="min-w-[304px] w-full min-h-[112px] text-sm placeholder-zinc-400 text-zinc-100 border-zinc-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none scrollbar scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin transition-colors"
+          placeholder="Conte Com Detalhes o que está acontecendo..."
+        />
+
+        <footer className="flex gap-2 mt-2">
+          <ScreenshotButton />
+
+          <button
+            type="submit"
+            className="p-2 bg-brand-500 rounded-md border-transparent flex-1 flex justify-center items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500"
+          >
+            Enviar Feedback
+          </button>
+        </footer>
+      </form>
     </>
   )
 }
